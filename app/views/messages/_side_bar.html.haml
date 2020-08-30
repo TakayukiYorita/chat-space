@@ -5,15 +5,18 @@
         = current_user.name
       %ul.top-items__icons
         %li.top-items__icon
-          = link_to "new.html.haml" do
+          = link_to new_group_path do
             = icon('fas', 'edit', class: "edit-icon")
         %li.top-items__icon
           = link_to edit_user_path(current_user) do
             = icon('fas', 'cog' , class: "cog-icon")
-  .side-bar__group
-    .side-bar__group-name
-      techcamp
-      .side-bar__group-messages
-        omg
+  .side-bar__group-list
+    - current_user.groups.each do |group|
+      .side-bar__group
+        = link_to '#' do { class: "a"}
+          .side-bar__group-name
+            = group.name
+          .side-bar__group-messages
+            メッセージはまだありません
       
 

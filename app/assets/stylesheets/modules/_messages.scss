@@ -44,19 +44,24 @@
         }
       }
     }
-      .side-bar__group {
+      .side-bar__group-list {
         background-color: #2f3e51;
         height: calc(100vh - 100px);
-        .side-bar__group-name {
-          color: #ffffff;
-          padding-top: 20px;
-          margin-right: 20px;
-          margin-bottom: 5px;
-          margin-left: 20px;
-          font-size: 15px;
+         a {
+           box-sizing: border-box;
+           padding: 20px 0 40px;
+           color: #ffffff;
+           text-decoration: none;
+          .side-bar__group-name {
+            padding-top: 20px;
+            margin-right: 20px;
+            margin-bottom: 5px;
+            margin-left: 20px;
+            font-size: 15px;
           }
-        .side-bar__group-messages {
-          font-size: 11px;
+          .side-bar__group-messages {
+            font-size: 11px;
+          }
         }
       }
     }
