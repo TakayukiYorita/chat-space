@@ -7,8 +7,8 @@
         .top-items__name
           - @group.users.each do |user|
             = user.name
-    %a
-      = link_to "Edit",edit_group_path(@group.id),class: "edit-btn"
+    .edit
+      = link_to "Edit",edit_group_path(@group.id),class: "edit-button"
   .Message-list
     = render @messages
 
