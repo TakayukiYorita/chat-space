@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  def edit
+
+  def index
   end
+
   def update
     if current_user.update(user_params)
       redirect_to root_path
