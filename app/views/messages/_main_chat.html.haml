@@ -2,39 +2,21 @@
   .Chat-main__group-info
     .group-main-header-left
       .group-name
-        test
+        = @group.name
       %ul.group-members
-        Member:
-        %li 
-          masa
-    %a.edit-btn{:href => "#"}
-      Edit
-  .Chat-main__message-list
-    .chat-main__message-box
-      .chat-box-name
-        masa
-      .chat-box-date
-        2020/08/20(Thu) 20:34:24
-    .chat-box-message
-      ohayo
-    .chat-main__message-box
-      .chat-box-name
-        take
-      .chat-box-date
-        2020/08/20(Thu) 20:34:24
-    .chat-box-message
-      こんばんは
+        .top-items__name
+          - @group.users.each do |user|
+            = user.name
+    %a
+      = link_to "Edit",edit_group_path(@group.id),class: "edit-btn"
+  .Message-list
+    = render @messages
+
   .Footer
-    %form.class-form{method: "post"}
+    = form_with model: [@group, @message], html: {class: "class-form"}, local: true do |f|
       .Form__contents
-        %input.class-name__text{type: "text", placeholder: "type a message"}  
-        %label{class: "input-box__image"}
-          %input.hidden{type: "file" , name: "message[image]"}
-            = icon('fas', 'image' , class: "image-icon")
-      %input.class-name__send{type: "submit", name: "commit", value: "Send", class: "form__submit"}
-
-
-    
-
-  
- 
+        = f.text_field :content, class: 'class-name__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
+          = icon('far', 'image', class: 'image-icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
